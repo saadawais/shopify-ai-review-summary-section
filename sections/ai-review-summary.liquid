@@ -1,0 +1,140 @@
+{% comment %}
+  Section: AI-Powered Customer Review Highlights (Amazon Style)
+  Designed for Product Templates (OS 2.0)
+{% endcomment %}
+
+<div class="ai-reviews-summary-section" id="ai-reviews-{{ section.id }}">
+  <div class="ai-summary-card">
+    <div class="ai-summary-badge-row">
+      <span class="ai-tag">✨ {{ section.settings.badge_title }}</span>
+      <span class="ai-disclaimer">{{ section.settings.disclaimer_text }}</span>
+    </div>
+
+    <div class="ai-summary-content">
+      <p class="ai-main-takeaway">
+        {{ section.settings.summary_text }}
+      </p>
+
+      <div class="ai-sentiment-tags">
+        <span class="sentiment-pill positive">✓ {{ section.settings.pill_1 }}</span>
+        <span class="sentiment-pill positive">✓ {{ section.settings.pill_2 }}</span>
+        <span class="sentiment-pill neutral">ℹ {{ section.settings.pill_3 }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .ai-reviews-summary-section {
+    padding: 24px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: inherit;
+  }
+  .ai-summary-card {
+    background: #fdfdfd;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #6366f1;
+    border-radius: 8px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .ai-summary-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .ai-tag {
+    background: #eeebff;
+    color: #4f46e5;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .ai-disclaimer {
+    font-size: 11px;
+    color: #9ca3af;
+  }
+  .ai-main-takeaway {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1f2937;
+    margin: 0 0 16px;
+  }
+  .ai-sentiment-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sentiment-pill {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .sentiment-pill.positive {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+  }
+  .sentiment-pill.neutral {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "AI Review Highlights",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_title",
+      "label": "Badge Title",
+      "default": "AI Review Summary"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer_text",
+      "label": "Disclaimer",
+      "default": "Synthesized from verified customer purchases"
+    },
+    {
+      "type": "textarea",
+      "id": "summary_text",
+      "label": "Summary Takeaway",
+      "default": "Customers consistently praise the premium build quality, comfortable all-day fit, and fast shipping. A small number of buyers recommend choosing one size up for an optimal fit."
+    },
+    {
+      "type": "text",
+      "id": "pill_1",
+      "label": "Highlight Pill 1",
+      "default": "96% Praise Durability"
+    },
+    {
+      "type": "text",
+      "id": "pill_2",
+      "label": "Highlight Pill 2",
+      "default": "True-to-Color Fabric"
+    },
+    {
+      "type": "text",
+      "id": "pill_3",
+      "label": "Highlight Pill 3",
+      "default": "Runs Slightly Slim"
+    }
+  ],
+  "presets": [
+    {
+      "name": "AI Review Highlights"
+    }
+  ]
+}
+{% endschema %}
